@@ -10,13 +10,21 @@ func (n Note) Title() string {
 }
 
 func (n Note) PercentOfCompleteness() float64 {
-	return 42.857
+	var completedTasks int
+	for _, task := range n.taskList {
+		if task.isCompleted {
+			completedTasks++
+		}
+	}
+
+	return float64(completedTasks) / float64(len(n.taskList)) * 100
 }
 
 func (n Note) TaskList() []Task {
 	return n.taskList
 }
 
+// Task represent single task
 type Task struct {
 	text        string
 	isCompleted bool
@@ -30,7 +38,7 @@ func (t Task) Text() string {
 	return t.text
 }
 
-type Header struct {
+type header struct {
 	text  string
 	level int
 }

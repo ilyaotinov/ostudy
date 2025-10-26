@@ -10,8 +10,8 @@ import (
 	extast "github.com/yuin/goldmark/extension/ast"
 )
 
-func processHeader(header *ast.Heading, source []byte) Header {
-	return Header{text: extractText(header, source), level: header.Level}
+func processHeader(h *ast.Heading, source []byte) header {
+	return header{text: extractText(h, source), level: h.Level}
 }
 
 // processTaskList assume it is a list after ## Task header.

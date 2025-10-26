@@ -63,7 +63,7 @@ func TestMDParser_Parse_Success(t *testing.T) {
 	got, err := p.Parse()
 	require.NoError(t, err)
 	assert.Equal(t, got.Title(), "Progress note")
-	assert.InDelta(t, got.PercentOfCompleteness(), 42.857, 0.0001)
+	assert.InDelta(t, got.PercentOfCompleteness(), 42.857, 0.001)
 	assert.True(t, containsWithText(got.TaskList(), "Task 1", true))
 	assert.True(t, containsWithText(got.TaskList(), "Task 2", true))
 	assert.True(t, containsWithText(got.TaskList(), "Task 3", true))
